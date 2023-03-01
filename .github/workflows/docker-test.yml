@@ -24,20 +24,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
-    - name: User
-      run: echo $env:UserName
-      
-    - name: Set docker variable
+
+    - name: Pull image and compile
       run: |
         $env:DOCKER_HOST="tcp://0.0.0.0:2375"
-        docker ps
-
-    - name: Get latest image
-      run: docker pull registry.matrixlt.local/msvs-2022
-
-    - name: Compile in docker
-      run: docker run --rm -v ${{env.GITHUB_WORKSPACE}}:C:\build -w C:\build registry.matrixlt.local/msvs-2022 msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+        docker pull registry.matrixlt.local/msvs-2022
+        docker run --rm -v ${{env.GITHUB_WORKSPACE}}:C:\build -w C:\build registry.matrixlt.local/msvs-2022 msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
     
     - name: Run exe
       run: ${{env.SOLUTION_FILE_PATH}}/x64/Release/ConsoleApplication1.exe
