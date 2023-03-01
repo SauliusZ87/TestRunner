@@ -24,6 +24,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: User
+      run: echo $env:UserName
 
     - name: Get latest image
       run: docker pull registry.matrixlt.local/msvs-2022
