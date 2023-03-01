@@ -27,6 +27,9 @@ jobs:
     
     - name: User
       run: echo $env:UserName
+      
+    - name: Test docker
+      run: docker ps
 
     - name: Get latest image
       run: docker pull registry.matrixlt.local/msvs-2022
