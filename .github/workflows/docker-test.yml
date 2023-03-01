@@ -29,10 +29,9 @@ jobs:
       run: echo $env:UserName
       
     - name: Set docker variable
-      run: $env:DOCKER_HOST="tcp://0.0.0.0:2375"
-      
-    - name: Test docker
-      run: docker ps
+      run: |
+        $env:DOCKER_HOST="tcp://0.0.0.0:2375"
+        docker ps
 
     - name: Get latest image
       run: docker pull registry.matrixlt.local/msvs-2022
