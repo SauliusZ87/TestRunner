@@ -26,7 +26,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Add CL to PATH
-      run: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat
+      run: D:\VsDevCmd.bat.lnk
 
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
