@@ -28,6 +28,9 @@ jobs:
     - name: User
       run: echo $env:UserName
       
+    - name: Set docker variable
+      run: $env:DOCKER_HOST="tcp://0.0.0.0:2375"
+      
     - name: Test docker
       run: docker ps
 
