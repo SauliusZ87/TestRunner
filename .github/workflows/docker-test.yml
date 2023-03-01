@@ -21,8 +21,6 @@ permissions:
 jobs:
   build:
     runs-on: run-home
-    container: 
-      image: registry.matrixlt.local/msvs-2022
 
     steps:
     - uses: actions/checkout@v3
