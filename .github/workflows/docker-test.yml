@@ -45,12 +45,15 @@ jobs:
     - name: Run exe
       run: ${{env.SOLUTION_FILE_PATH}}/x64/Release/ConsoleApplication1.exe
 
-  - name: 'Upload Artifacts'
+  artifacts:
+    runs-on: run-home
     needs: [run_job1, run_job2]
-    uses: actions/upload-artifact@v3
-    with:
-      name: my-artifact
-      path: test*.txt
-      retention-days: 2
+    steps:
+      - name: 'Upload Artifacts'
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: test*.txt
+          retention-days: 2
 
   
